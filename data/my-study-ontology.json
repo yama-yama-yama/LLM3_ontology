@@ -1,0 +1,400 @@
+{
+  "concepts": {
+    "programming": {
+      "label": "プログラミング",
+      "level": "beginner",
+      "subConcepts": ["variables", "functions", "loops", "conditionals"],
+      "prerequisites": [],
+      "relatedConcepts": ["computer-science", "algorithms"],
+      "synonyms": ["コーディング", "プログラム作成"],
+      "description": "コンピュータプログラムの作成技術",
+      "explanations": {
+        "beginner": "コンピュータに「こうして」と指示を出す方法です。料理のレシピのように、順番に手順を書いていきます。",
+        "intermediate": "コンピュータが理解できる言語を使って、処理手順（アルゴリズム）を記述する技術です。",
+        "advanced": "計算モデルに基づく形式言語を用いて、チューリング完全な計算を記述する行為です。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "プログラミングは数学ができないとできない",
+          "correct": "基本的な論理的思考があれば始められます。高度な数学が必要になるのは特定の分野だけです。",
+          "hint": "まずは簡単なプログラムから始めて、必要に応じて数学を学びましょう。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "prog-ex1",
+          "question": "プログラムとは何を記述したものですか？",
+          "type": "multiple-choice",
+          "options": ["コンピュータへの指示", "数学の公式", "日本語の文章"],
+          "answer": 0,
+          "hints": [
+            "料理のレシピを思い出してください",
+            "コンピュータに「何をしてほしいか」を伝えます"
+          ]
+        }
+      ]
+    },
+    "variables": {
+      "label": "変数",
+      "level": "beginner",
+      "subConcepts": ["data-types", "scope"],
+      "prerequisites": [],
+      "relatedConcepts": ["memory", "assignment"],
+      "synonyms": ["var", "変数宣言", "variable"],
+      "description": "データを格納するための名前付きの場所",
+      "explanations": {
+        "beginner": "名前をつけてデータを保存する仕組みです。「x = 5」と書くと、「x」という名前で「5」を覚えておけます。",
+        "intermediate": "メモリ上の領域を参照するための識別子です。値を格納し、プログラム中で再利用できます。",
+        "advanced": "スコープとライフタイムを持つ束縛（binding）であり、環境（environment）内で識別子と値を対応付けます。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "変数は「箱」のようなもの",
+          "correct": "変数は「ラベル」や「名札」に近いです。特にJavaScriptでは、変数は値への参照（ポインタ）です。",
+          "hint": "let a = [1,2,3]; let b = a; のとき、bを変更するとaも変わります。箱なら別々のはずですよね？"
+        },
+        {
+          "wrong": "「=」は「等しい」という意味",
+          "correct": "プログラミングの「=」は「代入」（右辺の値を左辺に入れる）です。等しいかの比較は「==」や「===」を使います。",
+          "hint": "x = x + 1 は数学では矛盾しますが、プログラミングでは「xに1を足す」という意味です。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "var-ex1",
+          "question": "let x = 5; の後、x の値は？",
+          "type": "short-answer",
+          "answer": "5",
+          "hints": [
+            "letは変数を宣言するキーワードです",
+            "=の右側の値が左側の変数に入ります"
+          ]
+        },
+        {
+          "id": "var-ex2",
+          "question": "let a = 10; let b = a; a = 20; このとき b の値は？",
+          "type": "short-answer",
+          "answer": "10",
+          "hints": [
+            "代入した時点の値がコピーされます（数値の場合）",
+            "aを後で変えても、bには影響しません"
+          ]
+        }
+      ]
+    },
+    "functions": {
+      "label": "関数",
+      "level": "intermediate",
+      "subConcepts": ["parameters", "return-values", "recursion"],
+      "prerequisites": ["variables"],
+      "relatedConcepts": ["procedures", "methods", "abstraction"],
+      "synonyms": ["function", "メソッド", "サブルーチン", "手続き"],
+      "description": "再利用可能なコードブロック",
+      "explanations": {
+        "beginner": "何度も使う処理をまとめて名前をつけたものです。「挨拶する」という関数を作れば、何度でも使えます。",
+        "intermediate": "入力（引数）を受け取り、処理を行い、出力（戻り値）を返す再利用可能なコードの単位です。",
+        "advanced": "ファーストクラスオブジェクトとして扱われ、クロージャを形成し、高階関数のパラメータや戻り値となりえます。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "関数は必ず値を返す",
+          "correct": "値を返さない関数（副作用のみの関数）もあります。console.log()は画面に表示するだけで、意味のある値は返しません。",
+          "hint": "関数には「何かを計算して結果を返す」ものと「何かの動作をする」ものがあります。"
+        },
+        {
+          "wrong": "関数の中で宣言した変数は外からも使える",
+          "correct": "関数内で宣言した変数は関数の外からは見えません（ローカルスコープ）。",
+          "hint": "これは「スコープ」という概念です。変数には「見える範囲」があります。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "func-ex1",
+          "question": "function add(a, b) { return a + b; } add(3, 4)の結果は？",
+          "type": "short-answer",
+          "answer": "7",
+          "hints": ["a=3, b=4として計算します", "returnは結果を返します"]
+        }
+      ]
+    },
+    "loops": {
+      "label": "ループ",
+      "level": "beginner",
+      "subConcepts": ["for-loop", "while-loop", "iteration"],
+      "prerequisites": ["variables"],
+      "relatedConcepts": ["conditionals", "arrays"],
+      "synonyms": ["繰り返し", "反復", "イテレーション", "ループ処理"],
+      "description": "同じ処理を繰り返し実行する構造",
+      "explanations": {
+        "beginner": "同じことを何度も繰り返したいときに使います。「10回『こんにちは』と言う」のような処理です。",
+        "intermediate": "条件が満たされている間、または指定回数だけ処理を反復実行する制御構造です。",
+        "advanced": "反復子パターンを抽象化した構造で、イテレータプロトコルに基づく遅延評価が可能です。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "forループとwhileループは同じ",
+          "correct": "forは回数が決まっているとき、whileは条件が満たされている間、という使い分けが一般的です。",
+          "hint": "「10回繰り返す」→ for、「正解するまで繰り返す」→ while"
+        },
+        {
+          "wrong": "無限ループは必ずバグ",
+          "correct": "サーバーやゲームのメインループなど、意図的な無限ループもあります。",
+          "hint": "ただし、意図しない無限ループはバグです。終了条件を必ず確認しましょう。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "loop-ex1",
+          "question": "for(let i=0; i<3; i++) { console.log(i); } 何が表示される？",
+          "type": "short-answer",
+          "answer": "0, 1, 2",
+          "hints": [
+            "i=0から始まります",
+            "i<3の間繰り返すので、i=3では止まります"
+          ]
+        }
+      ]
+    },
+    "data-structures": {
+      "label": "データ構造",
+      "level": "intermediate",
+      "subConcepts": ["arrays", "objects", "linked-lists"],
+      "prerequisites": ["variables", "loops"],
+      "relatedConcepts": ["algorithms", "complexity"],
+      "synonyms": ["配列", "リスト", "コレクション"],
+      "description": "データを効率的に格納・操作する方法",
+      "explanations": {
+        "beginner": "たくさんのデータを整理して保存する方法です。本棚のように順番に並べたり、辞書のように名前をつけて保存したりします。",
+        "intermediate": "データの格納方法と、それに対する操作（追加・削除・検索など）の効率を考慮した構造です。",
+        "advanced": "計算量（時間・空間）のトレードオフを考慮し、問題の性質に応じた最適な抽象データ型を選択します。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "配列は何でも入れられる万能な構造",
+          "correct": "配列は順序付きのデータには向いていますが、キーで検索したい場合はオブジェクト/Mapが適しています。",
+          "hint": "「番号で取り出す」→配列、「名前で取り出す」→オブジェクト"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "ds-ex1",
+          "question": "let arr = [10, 20, 30]; arr[1]の値は？",
+          "type": "short-answer",
+          "answer": "20",
+          "hints": [
+            "配列のインデックスは0から始まります",
+            "arr[0]=10, arr[1]=20, arr[2]=30"
+          ]
+        }
+      ]
+    },
+    "algorithms": {
+      "label": "アルゴリズム",
+      "level": "intermediate",
+      "subConcepts": ["sorting", "searching", "recursion"],
+      "prerequisites": ["functions", "loops", "data-structures"],
+      "relatedConcepts": ["complexity", "optimization"],
+      "synonyms": ["計算手法", "処理手順", "解法"],
+      "description": "問題解決の手順",
+      "explanations": {
+        "beginner": "問題を解くための手順・レシピです。「一番大きい数を見つける」にも決まった手順があります。",
+        "intermediate": "入力から出力を得るための有限の手順で、正確性・効率性・停止性が保証されます。",
+        "advanced": "計算複雑性理論に基づき、問題クラス（P, NP等）と計算量のオーダーで分類・評価されます。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "アルゴリズムは難しい数学の問題",
+          "correct": "日常的な問題解決も立派なアルゴリズムです。例えば「辞書で言葉を探す」にもアルゴリズムがあります。",
+          "hint": "二分探索：辞書の真ん中を開いて、探す言葉が前半か後半かを判断する、を繰り返す"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "algo-ex1",
+          "question": "[3, 1, 4, 1, 5]から最大値を見つけるアルゴリズムの基本的な考え方は？",
+          "type": "multiple-choice",
+          "options": [
+            "全部足す",
+            "最初の要素を仮の最大値とし、順に比較して更新",
+            "ランダムに選ぶ"
+          ],
+          "answer": 1,
+          "hints": [
+            "一つずつ見ていく必要があります",
+            "今までで一番大きい数を覚えておきます"
+          ]
+        }
+      ]
+    },
+    "api-basic": {
+      "label": "API",
+      "level": "beginner",
+      "prerequisites": [],
+      "relatedConcepts": ["SDK", "REST", "Endpoint", "JSON"],
+      "synonyms": ["Application Programming Interface", "連携インターフェース"],
+      "description": "ソフトウェアやプログラム同士が情報をやり取りするための「窓口」や「約束事」のこと。",
+      "explanations": {
+        "beginner": "レストランの「注文を取るウェイター」に例えられます。客（ユーザー）が料理（データや機能）を注文すると、ウェイター（API）が厨房（サーバー）に伝え、出来上がった料理を客に届けます。客は厨房の中身を知らなくても、メニュー（APIの仕様）さえ知っていればサービスを受けられます。",
+        "intermediate": "あるアプリケーションが、別のアプリケーションの機能やデータを利用するための定義されたメソッドの集合です。Web APIの場合、特定のURL（エンドポイント）に対して、HTTPリクエスト（GETやPOSTなど）を送ることで、JSON形式などでデータを受け取る仕組みを指します。",
+        "advanced": "コンポーネント間の疎結合を実現するための抽象化レイヤーです。実装の詳細をカプセル化し、標準化された通信プロトコルとデータ形式を通じて、分散システム間での相互運用性を提供します。認証（OAuth等）、レート制限、バージョニングなどの管理機能も含めて設計されます。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "APIは単なるURL（Webサイトのアドレス）のことである。",
+          "correct": "URL（エンドポイント）はAPIにアクセスするための入り口の一部に過ぎず、API自体はその背後にある「やり取りのルール」や「処理の仕組み」全体を指します。",
+          "hint": "テレビのリモコンを想像してください。ボタン（URL）だけでなく、それを押したときにテレビがどう反応するかという仕様全体がAPIです。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "API-ex1",
+          "question": "Webサービス同士を連携させ、特定の機能を外部から利用できるようにする仕組みをアルファベット3文字で何と呼びますか？",
+          "type": "short-answer",
+          "answer": "API",
+          "hints": ["Application Programming Interfaceの略です。", "「窓口」としての役割を果たします。"]
+        }
+      ]
+    },
+    "database-fundamentals": {
+      "label": "データベース",
+      "level": "beginner",
+      "prerequisites": [],
+      "relatedConcepts": ["SQL", "RDBMS", "NoSQL", "Index", "CRUD"],
+      "synonyms": ["DB", "データの基地", "電子的な保管庫"],
+      "description": "大量のデータを整理・保存し、必要な時に効率よく、かつ安全に取り出せるようにした仕組みのこと。",
+      "explanations": {
+        "beginner": "大きな「デジタル整理棚」や「図書館」をイメージしてください。Excelは自分一人で使う「ノート」のようなものですが、データベースは何百人、何千人もの人が同時に情報を書き込んだり、一瞬で特定の情報を探し出したりできる、巨大で賢い保管庫です。",
+        "intermediate": "データを構造化して管理する「DBMS（データベース管理システム）」を指します。データの整合性を保つための制約（型や主キー）を設定し、SQLなどのクエリ言語を用いて、データの抽出、追加、更新、削除（CRUD操作）を効率的に行います。",
+        "advanced": "データの一貫性を保証する「ACID特性」を備えたトランザクション管理や、検索性能を向上させる「インデックス（B-Treeなど）」、正規化による冗長性の排除などを伴う設計思想です。リレーショナル（RDB）だけでなく、スケーラビリティに長けたNoSQLなど、用途に応じたアーキテクチャの選択が求められます。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "データベースはExcel（表計算ソフト）と同じものである。",
+          "correct": "Excelは個人がデータを加工・分析するのに向いていますが、データベースは何万件もの膨大なデータを管理し、複数のアプリから同時にアクセスされてもデータが壊れないように設計されています。",
+          "hint": "銀行のATMを想像してください。世界中で同時に引き出しが行われても計算が狂わないのは、データベースが厳密に管理しているからです。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "DB-ex1",
+          "question": "多くのデータベースで使われる、データの操作や抽出を行うための専用の言語を何と呼びますか？（アルファベット3文字）",
+          "type": "short-answer",
+          "answer": "SQL",
+          "hints": ["「SELECT」や「WHERE」といったキーワードを使います。","Structured Query Languageの略です。"]
+        }
+      ]
+    },
+    "cloud-computing": {
+      "label": "クラウドコンピューティング",
+      "level": "beginner",
+      "prerequisites": [],
+      "relatedConcepts": ["AWS", "Azure", "SaaS", "PaaS", "IaaS", "Serverless"],
+      "synonyms": ["クラウド", "Cloud Computing"],
+      "description": "インターネットを通じて、必要な時に必要な分だけサーバーやストレージなどのコンピュータ資源を利用する仕組み。",
+      "explanations": {
+        "beginner": "「水道や電気」のような公共サービスと同じ仕組みです。自分で発電機（サーバー）を買わなくても、蛇口をひねれば（ネットに繋げば）いつでもコンピュータの力が使え、使った分だけお金を払えば済みます。",
+        "intermediate": "仮想化技術を基盤とし、オンデマンドでプロビジョニング可能な計算リソースを提供するモデルです。物理的なハードウェア管理を抽象化し、APIを通じてスケーラブルなインフラを迅速に構築できるのが特徴です。",
+        "advanced": "弾力性（エラスティシティ）とスケーラビリティを備えた分散コンピューティング環境です。責任共有モデルに基づき、マネージドサービスやサーバーレスアーキテクチャを活用することで、運用負荷を最小化しつつ可用性の高いシステムを構築する手法を指します。"
+      },
+      "misconceptions": [
+        {
+          "wrong": "クラウドにデータを置けば、セキュリティ対策は一切不要である。",
+          "correct": "クラウド事業者はインフラ側の安全を守りますが、その上に載せるアプリやパスワード設定などの安全は、利用者が管理する必要があります（責任共有モデル）。",
+          "hint": "「銀行は金庫を頑丈にするが、自分の暗証番号を漏らさないのは自分の責任」という考え方に似ています。"
+        }
+      ],
+      "exercises": [
+        {
+          "id": "Cloud-ex1",
+          "question": "サーバーの購入が不要で、プログラムを実行した時間や回数分だけ課金されるようなクラウドの形態を「サーバー○○○」と呼びますか？",
+          "type": "short-answer",
+          "answer": "レス",
+          "hints": ["Serverless", "サーバーが「無い（ように見える）」という意味です。"]
+        }
+      ]
+    }
+  },
+  "relations": [
+    {
+      "from": "variables",
+      "to": "functions",
+      "type": "prerequisite",
+      "strength": 0.9
+    },
+    {
+      "from": "variables",
+      "to": "loops",
+      "type": "prerequisite",
+      "strength": 0.8
+    },
+    {
+      "from": "variables",
+      "to": "data-structures",
+      "type": "prerequisite",
+      "strength": 0.7
+    },
+    {
+      "from": "loops",
+      "to": "data-structures",
+      "type": "prerequisite",
+      "strength": 0.6
+    },
+    {
+      "from": "functions",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "strength": 0.8
+    },
+    {
+      "from": "loops",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "strength": 0.8
+    },
+    {
+      "from": "data-structures",
+      "to": "algorithms",
+      "type": "prerequisite",
+      "strength": 0.9
+    },
+    {
+      "from": "functions",
+      "to": "recursion",
+      "type": "prerequisite",
+      "strength": 0.9
+    },
+    {
+      "from": "algorithms",
+      "to": "data-structures",
+      "type": "related",
+      "strength": 0.9
+    },
+    { "from": "loops", "to": "arrays", "type": "related", "strength": 0.8 }
+  ],
+  "learnerLevels": {
+    "beginner": {
+      "description": "プログラミング初学者",
+      "characteristics": [
+        "具体的な例で理解",
+        "比喩を好む",
+        "一度に多くの情報は難しい"
+      ]
+    },
+    "intermediate": {
+      "description": "基礎を理解し応用段階",
+      "characteristics": [
+        "抽象的な概念も理解可能",
+        "技術用語を使える",
+        "複数概念の関連付けができる"
+      ]
+    },
+    "advanced": {
+      "description": "深い理解を持つ学習者",
+      "characteristics": [
+        "理論的背景に興味",
+        "最適化を考慮",
+        "設計判断ができる"
+      ]
+    }
+  }
+}
